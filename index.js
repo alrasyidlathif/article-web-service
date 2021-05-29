@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 
+const db = require('./database')
 const routes = require('./routes')
 
 const app = express()
