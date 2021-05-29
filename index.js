@@ -1,9 +1,13 @@
 const express = require('express')
 
+const routes = require('./routes')
+
 const app = express()
 
+app.use('/articles', routes.article)
+
 app.use('/', (req, res) => {
-    return res.status(200).send("ok")
+    return res.status(404).send("not found")
 })
 
 app.listen(3000, 'localhost', () => {
