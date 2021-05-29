@@ -3,7 +3,7 @@ const path =  require('path')
 
 dotenv.config({ path: path.join(process.cwd(), '.env') })
 
-const ENV_VAR = ['DBNAME', 'DBUSER', 'DBPWD']
+const ENV_VAR = ['DBNAME', 'DBUSER', 'DBPWD', 'CACHETTL']
 
 for (let i of ENV_VAR) {
     if (!process.env[i]) {
@@ -18,6 +18,11 @@ const db = {
     pwd: process.env.DBPWD
 }
 
+const cache = {
+    ttl: process.env.CACHETTL
+}
+
 module.exports = {
-    db
+    db,
+    cache
 }
