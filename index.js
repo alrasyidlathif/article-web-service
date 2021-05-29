@@ -14,6 +14,13 @@ app.use('/', (req, res) => {
     return res.status(404).send("not found")
 })
 
-app.listen(3000, 'localhost', () => {
-    console.log('server running on port 3000')
+db.sync()
+.then(result => {
+    app.listen(3000, 'localhost', () => {
+        console.log('server running on port 3000')
+    })
+})
+.catch(err => {
+    console.log(err)
+    process.exit(1)
 })
