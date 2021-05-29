@@ -9,7 +9,10 @@ const fetchArticleById = async (id) => {
                 id: {
                     [Sequelize.Op.gt]: id
                 }
-            }
+            },
+            order: [
+                ['id', 'ASC']
+            ]
         })
         return data
     } catch (error) {
