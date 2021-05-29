@@ -1,11 +1,12 @@
 const ArticleCache = require('../models/myCache')
 const cacheKey = require('../utils/cacheKey')
 const response = require('../utils/response')
+const envi = require('../configs/envi')
 
 const saveCache = (req, res, next) => {
     const key = cacheKey.generate(req.query)
     const data = res.locals.toCache
-    const ac = new ArticleCache(key, data)
+    const ac = new ArticleCache(key, data, envi.cache.ttl)
     ac.save((msg) => {
         console.log(msg)
     })
