@@ -1,14 +1,13 @@
 const express = require('express')
 
+const searchArticleController = require('./search-article/controllers')
+const articleController = require('./article/controllers')
+
 const article = express.Router()
 
-article.get('/', (req, res, next) => {
-    console.log('get')
-})
+article.get('/', searchArticleController.getArticles)
 
-article.post('/', (req, res, next) => {
-    console.log('post')
-})
+article.post('/', articleController.addArticle)
 
 module.exports = {
     article
