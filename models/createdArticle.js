@@ -23,8 +23,9 @@ const CreatedArticle = db.define('created_articles',
             allowNull: false
         },
         created: {
-            type: Sequelize.DATE,
-            allowNull: false
+            type: 'TIMESTAMP',
+            allowNull: false,
+            defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
         }
     }
 )

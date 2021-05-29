@@ -1,6 +1,7 @@
 const format = (error, msg, data) => {
     console.log(msg)
-    return {error, msg, data}
+    if (data) return {error, msg, data}
+    return {error, msg}
 }
 
 module.exports = {

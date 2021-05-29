@@ -23,7 +23,7 @@ const Article = db.define('articles',
             allowNull: false
         },
         created: {
-            type: Sequelize.DATE,
+            type: 'TIMESTAMP',
             allowNull: false
         }
     },

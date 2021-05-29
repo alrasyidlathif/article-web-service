@@ -16,11 +16,11 @@ const getArticles = async (req, res, next) => {
             data = await articleService.fetchArticle()
         }        
     } catch (error) {
-        console.log(err0r)
-        res.status(200).send(response.format('99', 'failed', data))
+        console.log(error)
+        return res.status(500).send(response.format('99', 'failed'))
     }
 
-    res.status(200).send(response.format('00', 'success', data))
+    return res.status(200).send(response.format('00', 'success', data))
 }
 
 module.exports = {
