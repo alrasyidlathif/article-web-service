@@ -20,7 +20,9 @@ const getArticles = async (req, res, next) => {
         return res.status(500).send(response.format('99', 'failed'))
     }
 
-    return res.status(200).send(response.format('00', 'success', data))
+    res.status(200).send(response.format('00', 'success', data))
+    res.locals.toCache = data
+    return next()
 }
 
 module.exports = {
