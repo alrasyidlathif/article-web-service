@@ -1,6 +1,8 @@
 const articleModel = require('../../models/article')
 
 const getArticles = async (req, res, next) => {
+    const {author, keyword} = req.query
+    
     res.status(200).send('ok')
 }
 

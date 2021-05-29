@@ -1,7 +1,7 @@
 const express = require('express')
 
-const queryArticleController = require('./controllers/query/article')
-const commandArticleController = require('./controllers/command/article')
+const queryArticleController = require('./query/controllers/article')
+const commandArticleController = require('./command/controllers/article')
 
 const article = express.Router()
 
