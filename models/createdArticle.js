@@ -2,11 +2,11 @@ const Sequelize = require('sequelize')
 
 const db = require('../configs/database')
 
-const Article = db.define('articles',
+const CreatedArticle = db.define('created_articles',
     {
         id: {
             type: Sequelize.INTEGER,
-            autoIncrement: false,
+            autoIncrement: true,
             allowNull: false,
             primaryKey: true
         },
@@ -26,13 +26,7 @@ const Article = db.define('articles',
             type: Sequelize.DATE,
             allowNull: false
         }
-    },
-    {
-        indexes: [
-            {unique: false, fields:['author']},
-            {unique: true, fields:['title']}
-        ]
     }
 )
 
-module.exports = Article
+module.exports = CreatedArticle
