@@ -1,13 +1,13 @@
 const express = require('express')
 
-const searchArticleController = require('./search-article/controllers')
-const articleController = require('./article/controllers')
+const queryArticleController = require('./controllers/query/article')
+const commandArticleController = require('./controllers/command/article')
 
 const article = express.Router()
 
-article.get('/', searchArticleController.getArticles)
+article.get('/', queryArticleController.getArticles)
 
-article.post('/', articleController.addArticle)
+article.post('/', commandArticleController.addArticle)
 
 module.exports = {
     article

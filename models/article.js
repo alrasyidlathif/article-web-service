@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize')
 
-const db = require('../database')
+const db = require('../configs/database')
 
 const Article = db.define('articles', {
     id: {
