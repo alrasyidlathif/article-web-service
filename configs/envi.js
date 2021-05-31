@@ -3,7 +3,7 @@ const path =  require('path')
 
 dotenv.config({ path: path.join(process.cwd(), '.env') })
 
-const ENV_VAR = ['DBNAME', 'DBUSER', 'DBPWD', 'CACHETTL', 'DBHOST']
+const ENV_VAR = ['DBNAME', 'DBUSER', 'DBPWD', 'CACHETTL', 'DBHOST', 'DBROOTPWD']
 
 for (let i of ENV_VAR) {
     if (!process.env[i]) {

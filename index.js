@@ -29,5 +29,6 @@ db.sync()
 })
 .catch(err => {
     console.log(err)
+    console.log('ERROR SYNC DB')
     process.exit(1)
 })

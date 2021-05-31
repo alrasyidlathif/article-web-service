@@ -1,0 +1,37 @@
+version: "3.8" # compose file version
+
+services:
+  article-service:
+    build: # Build image from local Dockerfile
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+      - '/app/node_modules'
+    depends_on:
+      - mysql # Wait until database service is loaded
+    networks:
+      - app-tier
+    env_file: ./.env
+    environment:
+      DBHOST: mysql
+      DBUSER: $DBUSER
+      DBPWD:  $DBPWD
+      DBNAME: $DBNAME
+
+  mysql:
+    image: mysql:8.0
+    env_file: ./.env
+    environment:
+      MYSQL_DATABASE: $DBNAME
+      MYSQL_USER: $DBUSER
+      MYSQL_PASSWORD: $DBPWD
+      MYSQL_ROOT_PASSWORD: $DBROOTPWD
+    networks:
+      - app-tier
+
+networks:
+  app-tier:
+    driver: bridge
