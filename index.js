@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const cors = require('cors')
 const cron = require('node-cron')
 
 const db = require('./configs/database')
@@ -9,6 +10,7 @@ const { copyArticle } = require('./scheduler/autoTask')
 const app = express()
 
 app.use(bodyParser.json())
+app.use(cors())
 
 app.use('/articles', routes.article)
 
