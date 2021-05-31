@@ -9,7 +9,7 @@ const addArticle = async (req, res, next) => {
     
     try {
         await articleService.createArticle(author, title, body)
-        return res.status(200).send(response.format('00', 'success', {
+        return res.status(201).send(response.format('00', 'success', {
             author, title, body
         }))
     } catch (error) {
